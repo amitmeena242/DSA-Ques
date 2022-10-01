@@ -1,0 +1,20 @@
+class Kadane {
+private:
+
+int max(int a, int b){
+    if(a>b){
+        return a;
+    }
+    return b;
+}
+public:
+
+int maxSubArray(vector<int>& nums) {
+    int count=0, maxi=INT_MIN;
+    for(int i=0; i<nums.size(); i++){
+        count=max(count+nums[i], nums[i]);
+        maxi = max(count, maxi);
+    }
+    return maxi;
+}
+};
